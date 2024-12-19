@@ -41,3 +41,7 @@ class TagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = serializers.TagSerializer
     queryset = Tag.objects.all()
     authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.queryset.filter(user=self.request.user)

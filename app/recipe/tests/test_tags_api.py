@@ -14,7 +14,7 @@ from recipe.serializers import TagSerializer
 TAGS_URL = reverse("recipe:tag-list")
 
 
-def create_user(email="test123132@example.com", password="password123"):
+def create_user(email="user@example.com", password="password123"):
     """create and return a user"""
     return get_user_model().objects.create_user(email=email, password=password)
 
